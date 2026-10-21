@@ -1,35 +1,29 @@
-<!-- MAKING THE BROWSER REMEMBER -->
-
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile card</title>
-    <link rel="stylesheet" href="./style.css" />
+    <title>Event Delegation Practice</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <section id="profile-card">
-      <div class="image"></div>
-      <form id="profile-form">
-        <label for="name">Name</label>
-        <p id="greeting"></p>
-        <br />
-        <input type="text" id="name" placeholder="John Doe"/>
-        <br />
-        <select name="" id="" id="favoriteColor">
-          <option value="red">Red</option>
-          <option value="blue">Blue</option>
-          <option value="green">Green</option>
-          <option value="yellow">Yellow</option>
-        </select>
-        <br />
-        <button id="submit">Submit</button>
-      </form>
-    </section>
-    <script src="./script.js">
-    
-    </script>
+    <div class="tasks">
+      <h1>My Tasks</h1>
+
+      <ul id="taskList">
+        <li data-id="1">
+          <span>Learn JavaScript</span>
+          <button data-action="complete">Complete</button>
+          <button data-action="delete">Delete</button>
+        </li>
+
+        <li data-id="2">
+          <span>Practice CSS</span>
+          <button data-action="complete">Complete</button>
+          <button data-action="delete">Delete</button>
+        </li>
+      </ul>
+    </div>
+    <script src="./script.js"></script>
   </body>
 </html>

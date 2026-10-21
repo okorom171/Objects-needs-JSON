@@ -1,41 +1,35 @@
-// OBJECTS NEED JSON
 
-// Save data to local storage
-function saveData(key, value) {
-  const text = JSON.stringify(value);
+const taskList = document.getElementById("taskList");
 
-  localStorage.setItem(key, text);
-}
+taskList.addEventListener("click", function(event) {
+  // Find the button that was clicked.
+  const button = event.target.closest("button[data-action]");
 
-saveData("student", {
-  name: "Donald",
-  age: 20
+  // Ignore clicks outside the action buttons.
+  if (!button || !taskList.contains(button)) {
+    return;
+  }
+
+  // Find the task that contains the button.
+  const taskItem = button.closest("li[data-id]");
+
+  if (!taskItem) {
+    return;
+  }
+
+  const action = button.dataset.action;
+
+  if (action === "complete") {
+    const title = taskItem.querySelector("span");
+
+    title.style.textDecoration =
+      title.style.textDecoration === "line-through"
+        ? "none"
+        : "line-through";
+  }
+
+  if (action === "delete") {
+    taskItem.remove();
+  }
 });
 
-
-
-// Incase there is an error, we can use try catch to handle it
-function saveData(key, value) {
-  try {
-    const text = JSON.stringify(value);
-
-    localStorage.setItem(key, text);
-  } catch (error) {
-    console.log("Could not save the data.");
-  }
-}
-
-// Load data from local storage
-function loadData(key, fallback) {
-  try {
-    const text = localStorage.getItem(key);
-
-    if (text === null) {
-      return fallback;
-    }
-
-    return JSON.parse(text);
-  } catch (error) {
-    return fallback;
-  }
-}
