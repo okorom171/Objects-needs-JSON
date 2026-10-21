@@ -1,25 +1,41 @@
-// MAKING THE BROWSER REMEMBER
+// OBJECTS NEED JSON
 
+// Save data to local storage
+function saveData(key, value) {
+  const text = JSON.stringify(value);
 
-const profileForm = document.getElementById("profile-form");
+  localStorage.setItem(key, text);
+}
 
-// To stop the page from reloading
-profileForm.addEventListener("submit", function (x) {
-  x.preventDefault();
-
-  const name = document.getElementById("name").value;
-  const favoriteColor = document.getElementById("favoriteColor");
-  const submit = document.getElementById("submit").value;
-
-  // Creating a user object
-  const profileCard = {
-    name: name,
-    favoriteColor: favoriteColor,
-  };
-
-  // saving to localStorage, JSON.stringify
-  localStorage.setItem("profile", JSON.stringify(profileCard));
-
-  alert("Registration successful");
-  profileForm.reset();
+saveData("student", {
+  name: "Donald",
+  age: 20
 });
+
+
+
+// Incase there is an error, we can use try catch to handle it
+function saveData(key, value) {
+  try {
+    const text = JSON.stringify(value);
+
+    localStorage.setItem(key, text);
+  } catch (error) {
+    console.log("Could not save the data.");
+  }
+}
+
+// Load data from local storage
+function loadData(key, fallback) {
+  try {
+    const text = localStorage.getItem(key);
+
+    if (text === null) {
+      return fallback;
+    }
+
+    return JSON.parse(text);
+  } catch (error) {
+    return fallback;
+  }
+}
