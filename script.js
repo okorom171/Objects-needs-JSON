@@ -1,10 +1,25 @@
-const networkBanner = document.getElementById("networkBanner");
+// MAKING THE BROWSER REMEMBER
 
-function updateNetworkStatus() {
-  networkBanner.hidden = navigator.onLine;
-}
 
-window.addEventListener("online", updateNetworkStatus);
-window.addEventListener("offline", updateNetworkStatus);
+const profileForm = document.getElementById("profile-form");
 
-updateNetworkStatus();
+// To stop the page from reloading
+profileForm.addEventListener("submit", function (x) {
+  x.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const favoriteColor = document.getElementById("favoriteColor");
+  const submit = document.getElementById("submit").value;
+
+  // Creating a user object
+  const profileCard = {
+    name: name,
+    favoriteColor: favoriteColor,
+  };
+
+  // saving to localStorage, JSON.stringify
+  localStorage.setItem("profile", JSON.stringify(profileCard));
+
+  alert("Registration successful");
+  profileForm.reset();
+});

@@ -1,30 +1,35 @@
+<!-- MAKING THE BROWSER REMEMBER -->
+
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Card</title>
+    <title>Profile card</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <!-- status -->
-
-    <div id="networkBanner" hidden role="status">
-      You are offline. Some features may not work.
-    </div>
-
-    <div class="card">
-      <span>Sale</span>
-      <!-- product image -->
-      <img src="./image/images.jpg" alt="Burger" />
-      <!-- product description -->
-      <div>
-        <h4>Cheese Burger</h4>
-        <p>$49.99</p>
-        <button>Add to cart</button>
-      </div>
-    </div>
-
-    <script src="./script.js"></script>
+    <section id="profile-card">
+      <div class="image"></div>
+      <form id="profile-form">
+        <label for="name">Name</label>
+        <p id="greeting"></p>
+        <br />
+        <input type="text" id="name" placeholder="John Doe"/>
+        <br />
+        <select name="" id="" id="favoriteColor">
+          <option value="red">Red</option>
+          <option value="blue">Blue</option>
+          <option value="green">Green</option>
+          <option value="yellow">Yellow</option>
+        </select>
+        <br />
+        <button id="submit">Submit</button>
+      </form>
+    </section>
+    <script src="./script.js">
+    
+    </script>
   </body>
 </html>
